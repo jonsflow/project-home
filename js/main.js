@@ -9,6 +9,8 @@ function initializeApp() {
     renderProjects();
     setupProjectFilters();
     setupSmoothScrolling();
+    setupAdTesting();
+    setupDonationButtons();
 }
 
 // Navigation functionality
@@ -228,3 +230,107 @@ document.addEventListener('click', function(e) {
         });
     }
 });
+
+// Ad Testing Functionality (Development Only)
+function setupAdTesting() {
+    // Show ad controls if in development mode (localhost or specific parameter)
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' ||
+                         new URLSearchParams(window.location.search).has('adtest');
+    
+    if (isDevelopment) {
+        const adControls = document.getElementById('ad-controls');
+        if (adControls) {
+            adControls.classList.add('show');
+        }
+        
+        // Setup toggle controls
+        const bannerToggle = document.getElementById('toggle-banner-ad');
+        const sidebarToggle = document.getElementById('toggle-sidebar-ad');
+        const donationToggle = document.getElementById('toggle-donation-buttons');
+        
+        if (bannerToggle) {
+            bannerToggle.addEventListener('change', function() {
+                toggleAdSection('.banner-ad', this.checked);
+            });
+        }
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('change', function() {
+                toggleAdSection('.sidebar-ad', this.checked);
+            });
+        }
+        
+        if (donationToggle) {
+            donationToggle.addEventListener('change', function() {
+                toggleDonationSection(this.checked);
+            });
+        }
+    }
+}
+
+function toggleAdSection(selector, show) {
+    const adSections = document.querySelectorAll(selector);
+    adSections.forEach(section => {
+        section.style.display = show ? 'block' : 'none';
+    });
+    
+    trackEvent('ad_testing', {
+        section: selector,
+        visible: show
+    });
+}
+
+function toggleDonationSection(show) {
+    const supportSection = document.querySelector('.support-section');
+    if (supportSection) {
+        supportSection.style.display = show ? 'block' : 'none';
+    }
+    
+    trackEvent('donation_testing', {
+        visible: show
+    });
+}
+
+// Donation Button Management
+function setupDonationButtons() {
+    const donationButtons = document.querySelectorAll('.donation-btn');
+    
+    donationButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            if (this.classList.contains('disabled')) {
+                e.preventDefault();
+                const service = this.getAttribute('data-service');
+                showDonationSetupMessage(service);
+            }
+        });
+    });
+}
+
+function showDonationSetupMessage(service) {
+    alert(`${service} is not set up yet. Please configure your ${service} account first.`);
+    
+    trackEvent('donation_setup_needed', {
+        service: service
+    });
+}
+
+// Function to enable donation buttons when ready
+function enableDonationButton(service, url) {
+    const button = document.querySelector(`[data-service="${service}"]`);
+    if (button) {
+        button.classList.remove('disabled');
+        button.href = url;
+        button.target = '_blank';
+        button.rel = 'noopener';
+        
+        trackEvent('donation_enabled', {
+            service: service
+        });
+    }
+}
+
+// Example usage when you're ready to activate:
+// enableDonationButton('github-sponsors', 'https://github.com/sponsors/jonathanalexander229');
+// enableDonationButton('kofi', 'https://ko-fi.com/jonathanalexander229');
+// enableDonationButton('paypal', 'https://paypal.me/jonathanalexander229');

@@ -63,6 +63,16 @@
 
         <section id="projects" class="projects">
             <div class="container">
+                <!-- Ad Section - Testing Only -->
+                <div class="ad-section banner-ad" data-ad-type="banner" style="display: none;">
+                    <div class="ad-placeholder">
+                        <span class="ad-label">Advertisement</span>
+                        <div class="ad-content">
+                            <p>728x90 Banner Ad Space - Testing</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <h2>Featured Projects</h2>
                 <div class="projects-filter">
                     <button class="filter-btn active" data-filter="all">All</button>
@@ -73,6 +83,16 @@
                 </div>
                 <div class="projects-grid" id="projects-grid">
                     <!-- Projects will be dynamically loaded here -->
+                </div>
+                
+                <!-- Ad Section - Sidebar Style -->
+                <div class="ad-section sidebar-ad" data-ad-type="sidebar" style="display: none;">
+                    <div class="ad-placeholder">
+                        <span class="ad-label">Sponsored</span>
+                        <div class="ad-content">
+                            <p>300x250 Sidebar Ad - Testing</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -122,6 +142,27 @@
                 <h2>Get In Touch</h2>
                 <div class="contact-content">
                     <p>Interested in collaborating or discussing opportunities? Let's connect!</p>
+                    
+                    <!-- Support Section -->
+                    <div class="support-section">
+                        <h3>Support My Work</h3>
+                        <p>If you find my projects helpful, consider supporting my development efforts:</p>
+                        <div class="donation-buttons">
+                            <a href="#" class="donation-btn github-sponsor disabled" data-service="github-sponsors">
+                                <span class="icon">💖</span>
+                                <span>GitHub Sponsors</span>
+                            </a>
+                            <a href="#" class="donation-btn kofi disabled" data-service="kofi">
+                                <span class="icon">☕</span>
+                                <span>Buy me a coffee</span>
+                            </a>
+                            <a href="#" class="donation-btn paypal disabled" data-service="paypal">
+                                <span class="icon">💰</span>
+                                <span>PayPal</span>
+                            </a>
+                        </div>
+                    </div>
+                    
                     <div class="contact-links">
                         <a href="https://github.com/jonathanalexander229" class="contact-link" target="_blank" rel="noopener">
                             <span class="icon">GitHub</span>
@@ -137,6 +178,20 @@
             </div>
         </section>
     </main>
+
+    <!-- Ad Testing Controls (Development Only) -->
+    <div class="ad-controls" id="ad-controls">
+        <h4>Ad Testing (Dev Mode)</h4>
+        <label>
+            <input type="checkbox" id="toggle-banner-ad"> Banner Ads
+        </label>
+        <label>
+            <input type="checkbox" id="toggle-sidebar-ad"> Sidebar Ads
+        </label>
+        <label>
+            <input type="checkbox" id="toggle-donation-buttons" checked> Donation Buttons
+        </label>
+    </div>
 
     <footer class="footer">
         <div class="container">

@@ -376,6 +376,67 @@ section {
     color: var(--text-light);
 }
 
+/* Support Section */
+.support-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--section-bg);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.support-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.donation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.donation-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.donation-btn.github-sponsor {
+    background: #ea4aaa;
+    color: white;
+}
+
+.donation-btn.kofi {
+    background: #ff5f5f;
+    color: white;
+}
+
+.donation-btn.paypal {
+    background: #0070ba;
+    color: white;
+}
+
+.donation-btn.disabled {
+    background: var(--border-color);
+    color: var(--text-light);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.donation-btn:not(.disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .contact-links {
     display: flex;
     justify-content: center;
@@ -536,6 +597,95 @@ section {
     left: 0;
     color: white;
     font-size: 0.9rem;
+}
+
+/* Ad Sections - Testing Only */
+.ad-section {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.ad-placeholder {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-label {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: var(--text-light);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.banner-ad .ad-placeholder {
+    width: 100%;
+    max-width: 728px;
+    height: 90px;
+    margin: 0 auto;
+}
+
+.sidebar-ad .ad-placeholder {
+    width: 300px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.ad-content {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.ad-content p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Ad Testing Controls */
+.ad-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    display: none;
+}
+
+.ad-controls.show {
+    display: block;
+}
+
+.ad-controls h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.ad-controls label {
+    display: block;
+    margin: 0.25rem 0;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.ad-controls input[type="checkbox"] {
+    margin-right: 0.5rem;
 }
 
 /* Animation Classes */
