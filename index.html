@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Crissey - Software Engineer & Portfolio</title>
+    <meta name="description" content="Jonathan Crissey - 18+ years software engineering experience. Cloud infrastructure, mobile development, hardware automation.">
+    <meta property="og:title" content="Jonathan Crissey - Software Engineer">
+    <meta property="og:description" content="Portfolio showcasing GitHub projects and professional experience">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>Jonathan Crissey</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#galleries">Galleries</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Software Engineer & Cloud Platform Specialist</h1>
+                <p>18+ years of experience in cloud infrastructure, mobile development, and hardware automation</p>
+                <p class="hero-subtitle">Currently: Cloud Hardware Platform Engineer at IBM</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Passionate software engineer with 18+ years of experience building scalable solutions across cloud infrastructure, mobile applications, and hardware automation systems.</p>
+                        <p>Currently working as a Cloud Hardware Platform Engineer at IBM, focusing on cutting-edge cloud technologies and platform optimization.</p>
+                        
+                        <h3>Technical Expertise</h3>
+                        <ul class="tech-list">
+                            <li>Cloud Infrastructure & Platform Engineering</li>
+                            <li>Mobile Development (Swift, React Native)</li>
+                            <li>Financial Trading Systems & Market Data</li>
+                            <li>Hardware Automation & IoT</li>
+                            <li>Full-Stack Web Development</li>
+                            <li>Python, JavaScript, TypeScript, Swift</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="financial">Financial</button>
+                    <button class="filter-btn" data-filter="tools">Tools</button>
+                </div>
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="galleries" class="galleries">
+            <div class="container">
+                <h2>Personal Interests</h2>
+                <div class="galleries-grid">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/biking/preview.jpg" alt="Mountain Biking" loading="lazy">
+                        </div>
+                        <h3>Mountain Biking</h3>
+                        <p>BMX, Downhill, Cross Country, and Gravel adventures</p>
+                        <a href="galleries/biking.html" class="gallery-link">View Gallery</a>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/photography/preview.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <h3>Photography</h3>
+                        <p>Outdoor scenes and various subjects</p>
+                        <a href="galleries/photography.html" class="gallery-link">View Gallery</a>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/cooking/preview.jpg" alt="Cooking" loading="lazy">
+                        </div>
+                        <h3>Cooking</h3>
+                        <p>Culinary projects and food photography</p>
+                        <a href="galleries/cooking.html" class="gallery-link">View Gallery</a>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="images/outdoor/preview.jpg" alt="Outdoor Activities" loading="lazy">
+                        </div>
+                        <h3>Outdoor Adventures</h3>
+                        <p>Hiking and camping experiences</p>
+                        <a href="galleries/outdoor.html" class="gallery-link">View Gallery</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-content">
+                    <p>Interested in collaborating or discussing opportunities? Let's connect!</p>
+                    <div class="contact-links">
+                        <a href="https://github.com/jonathanalexander229" class="contact-link" target="_blank" rel="noopener">
+                            <span class="icon">GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/jonathanalexander229" class="contact-link" target="_blank" rel="noopener">
+                            <span class="icon">LinkedIn</span>
+                        </a>
+                        <a href="mailto:jonathan@example.com" class="contact-link">
+                            <span class="icon">Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Jonathan Crissey. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/projects.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
