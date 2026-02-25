@@ -10,7 +10,7 @@ const projects = [
         featured: true,
         category: "web",
         topics: ["resume", "yaml", "generator", "web"],
-        updatedAt: "2025-11-08T18:14:14Z"
+        updatedAt: "2025-12-23T22:39:17Z"
     },
     {
         name: "mtb-trivia",
@@ -46,7 +46,7 @@ const projects = [
         featured: true,
         category: "financial",
         topics: ["trading", "market-data", "streaming", "schwab-api"],
-        updatedAt: "2025-07-31T20:35:20Z"
+        updatedAt: "2025-11-26T13:08:02Z"
     },
     {
         name: "bikecheck",
@@ -58,7 +58,7 @@ const projects = [
         featured: true,
         category: "mobile",
         topics: ["ios", "swift", "mountain-biking", "maintenance"],
-        updatedAt: "2025-10-06T00:00:32Z"
+        updatedAt: "2026-02-22T22:34:34Z"
     },
     {
         name: "schwab_streaming_options",
@@ -70,7 +70,7 @@ const projects = [
         featured: true,
         category: "financial",
         topics: ["trading", "options", "schwab-api"],
-        updatedAt: "2025-11-02T01:14:07Z"
+        updatedAt: "2026-02-25T04:21:37Z"
     },
     {
         name: "bikecheck-public",
@@ -131,6 +131,78 @@ const projects = [
         category: "mobile",
         topics: ["swift", "cycling", "bike-tracking", "ios", "fleet-management"],
         updatedAt: "2024-12-24T02:16:30Z"
+    },
+    {
+        name: "risk-divergence",
+        description: "Real-time risk divergence analysis tool for financial markets",
+        url: "https://github.com/jonsflow/risk-divergence",
+        homepageUrl: "",
+        primaryLanguage: "JavaScript",
+        hasGitHubPages: false,
+        featured: true,
+        category: "financial",
+        topics: ["trading", "risk", "analysis", "javascript"],
+        updatedAt: "2026-02-24T21:10:22Z"
+    },
+    {
+        name: "rh_web",
+        description: "Web interface for Robinhood trading data and portfolio visualization",
+        url: "https://github.com/jonsflow/rh_web",
+        homepageUrl: "",
+        primaryLanguage: "Python",
+        hasGitHubPages: false,
+        featured: true,
+        category: "financial",
+        topics: ["trading", "robinhood", "web", "portfolio"],
+        updatedAt: "2026-01-25T03:55:52Z"
+    },
+    {
+        name: "mamba_signals",
+        description: "Market signal generation using Mamba state space models for trading",
+        url: "https://github.com/jonsflow/mamba_signals",
+        homepageUrl: "",
+        primaryLanguage: "Python",
+        hasGitHubPages: false,
+        featured: false,
+        category: "financial",
+        topics: ["trading", "signals", "mamba", "machine-learning"],
+        updatedAt: "2025-11-30T21:11:32Z"
+    },
+    {
+        name: "ollama-mcp",
+        description: "MCP server integration for Ollama local LLM models",
+        url: "https://github.com/jonsflow/ollama-mcp",
+        homepageUrl: "",
+        primaryLanguage: "Python",
+        hasGitHubPages: false,
+        featured: false,
+        category: "ai",
+        topics: ["llm", "mcp", "ollama", "ai"],
+        updatedAt: "2025-08-18T23:42:42Z"
+    },
+    {
+        name: "rag_agent",
+        description: "Retrieval-augmented generation agent for intelligent document querying",
+        url: "https://github.com/jonsflow/rag_agent",
+        homepageUrl: "",
+        primaryLanguage: "Python",
+        hasGitHubPages: false,
+        featured: false,
+        category: "ai",
+        topics: ["rag", "ai", "llm", "python"],
+        updatedAt: "2025-08-22T16:01:56Z"
+    },
+    {
+        name: "ibkr_paper_trading",
+        description: "Interactive Brokers paper trading automation and strategy testing",
+        url: "https://github.com/jonsflow/ibkr_paper_trading",
+        homepageUrl: "",
+        primaryLanguage: "Python",
+        hasGitHubPages: false,
+        featured: false,
+        category: "financial",
+        topics: ["trading", "ibkr", "automation", "python"],
+        updatedAt: "2025-08-21T03:45:13Z"
     }
 ];
 
