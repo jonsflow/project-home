@@ -16,7 +16,7 @@
   },
   {
     "name": "bikecheck",
-    "description": "Swift mobile application for mountain bike maintenance tracking and community sharing",
+    "description": "iOS maintenance companion app with Strava integration for tracking bike service schedules, component maintenance, and smart reminders across multiple bikes",
     "url": "https://github.com/jonsflow/bikecheck",
     "homepageUrl": "",
     "primaryLanguage": "Swift",
