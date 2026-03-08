@@ -264,9 +264,10 @@ section {
 }
 
 .project-title {
-    font-size: 1.3rem;
-    color: var(--primary-color);
+    font-size: 1.4rem;
+    color: var(--secondary-color);
     margin: 0;
+    font-weight: 700;
 }
 
 .project-language {
