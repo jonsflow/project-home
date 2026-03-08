@@ -26,7 +26,7 @@ Use `gh` CLI during development to gather current repositories, then hardcode th
 gh repo list --limit 100 --json name,description,url,homepageUrl,primaryLanguage,updatedAt
 
 # Check specific repo for GitHub Pages
-gh api repos/jonathanalexander229/{repo-name}/pages
+gh api repos/jonsflow/{repo-name}/pages
 
 # Get repository topics/tags
 gh repo view {repo-name} --json topics
@@ -96,8 +96,8 @@ const projects = [
   {
     name: "resume-creator",
     description: "YAML-based resume generation system",
-    url: "https://github.com/jonathanalexander229/resume-creator",
-    homepageUrl: "https://jonathanalexander229.github.io/resume-creator",
+    url: "https://github.com/jonsflow/resume-creator",
+    homepageUrl: "https://jonsflow.github.io/resume-creator",
     primaryLanguage: "Python",
     hasGitHubPages: true,
     featured: true,

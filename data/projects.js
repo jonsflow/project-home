@@ -3,7 +3,7 @@
 const projects = [
     {
         "name": "risk-divergence",
-        "description": "Real-time risk divergence analysis tool for financial markets",
+        "description": "Project: risk-divergence",
         "url": "https://github.com/jonsflow/risk-divergence",
         "homepageUrl": "",
         "primaryLanguage": "JavaScript",
@@ -15,7 +15,7 @@ const projects = [
     },
     {
         "name": "bikecheck",
-        "description": "Swift mobile application for mountain bike maintenance tracking and community sharing",
+        "description": "Project: bikecheck",
         "url": "https://github.com/jonsflow/bikecheck",
         "homepageUrl": "",
         "primaryLanguage": "Swift",
@@ -27,7 +27,7 @@ const projects = [
     },
     {
         "name": "schwab_streaming_options",
-        "description": "Streaming options data and analysis using Schwab API",
+        "description": "Project: schwab_streaming_options",
         "url": "https://github.com/jonsflow/schwab_streaming_options",
         "homepageUrl": "",
         "primaryLanguage": "Python",
@@ -39,7 +39,7 @@ const projects = [
     },
     {
         "name": "rh_web",
-        "description": "Web interface for Robinhood trading data and portfolio visualization",
+        "description": "Project: rh_web",
         "url": "https://github.com/jonsflow/rh_web",
         "homepageUrl": "",
         "primaryLanguage": "Python",
@@ -51,7 +51,7 @@ const projects = [
     },
     {
         "name": "bragging-rights",
-        "description": "Platform for sharing achievements and accomplishments",
+        "description": "Project: bragging-rights",
         "url": "https://github.com/jonsflow/bragging-rights",
         "homepageUrl": "",
         "primaryLanguage": "PHP",
@@ -63,7 +63,7 @@ const projects = [
     },
     {
         "name": "nplusone",
-        "description": "iOS app prototype to track your bike fleet - because N+1 bikes is always the right number for cycling enthusiasts",
+        "description": "Project: nplusone",
         "url": "https://github.com/jonsflow/nplusone",
         "homepageUrl": "",
         "primaryLanguage": "Swift",
@@ -75,7 +75,7 @@ const projects = [
     },
     {
         "name": "resume-creator",
-        "description": "A dynamic resume creation project with YAML-based configuration and modern web technologies",
+        "description": "a dynamic resume creation project",
         "url": "https://github.com/jonsflow/resume-creator",
         "homepageUrl": "",
         "primaryLanguage": "HTML",
@@ -87,7 +87,7 @@ const projects = [
     },
     {
         "name": "mamba_signals",
-        "description": "Market signal generation using Mamba state space models for trading",
+        "description": "Project: mamba_signals",
         "url": "https://github.com/jonsflow/mamba_signals",
         "homepageUrl": "",
         "primaryLanguage": "Python",
@@ -99,7 +99,7 @@ const projects = [
     },
     {
         "name": "FlowerOfLife",
-        "description": "Geometric art and visualization project",
+        "description": "Project: FlowerOfLife",
         "url": "https://github.com/jonsflow/FlowerOfLife",
         "homepageUrl": "",
         "primaryLanguage": "HTML",
@@ -111,7 +111,7 @@ const projects = [
     },
     {
         "name": "mayan-codex",
-        "description": "Mayan calendar and numerical system explorer",
+        "description": "Project: mayan-codex",
         "url": "https://github.com/jonsflow/mayan-codex",
         "homepageUrl": "",
         "primaryLanguage": "HTML",
@@ -123,7 +123,7 @@ const projects = [
     },
     {
         "name": "schwab-streaming",
-        "description": "Real-time financial market data streaming application using Schwab API",
+        "description": "Project: schwab-streaming",
         "url": "https://github.com/jonsflow/schwab-streaming",
         "homepageUrl": "",
         "primaryLanguage": "Python",
@@ -135,7 +135,7 @@ const projects = [
     },
     {
         "name": "YesChef",
-        "description": "Menu recipe prototype for back of the house reference - Restaurant kitchen management tool",
+        "description": "menu recipe prototype for back of the house reference ",
         "url": "https://github.com/jonsflow/YesChef",
         "homepageUrl": "",
         "primaryLanguage": "HTML",
