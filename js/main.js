@@ -331,6 +331,6 @@ function enableDonationButton(service, url) {
 }
 
 // Example usage when you're ready to activate:
-// enableDonationButton('github-sponsors', 'https://github.com/sponsors/jonathanalexander229');
-// enableDonationButton('kofi', 'https://ko-fi.com/jonathanalexander229');
-// enableDonationButton('paypal', 'https://paypal.me/jonathanalexander229');
+// enableDonationButton('github-sponsors', 'https://github.com/sponsors/jonsflow');
+// enableDonationButton('kofi', 'https://ko-fi.com/jonsflow');
+// enableDonationButton('paypal', 'https://paypal.me/jonsflow');
