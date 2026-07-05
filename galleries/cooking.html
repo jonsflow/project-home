@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Gallery - Jonathan Crissey</title>
+    <meta name="description" content="Culinary adventures - food photography and cooking projects.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><a href="../index.html" style="text-decoration:none;color:inherit;">Jonathan Crissey</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#galleries">Galleries</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-page">
+            <div class="container">
+                <h2>Culinary Adventures</h2>
+                <p>Food photography and cooking projects</p>
+                <div class="galleries-grid" id="gallery-grid">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="../images/cooking/dish-1.jpg" alt="Gourmet cooking" loading="lazy">
+                        </div>
+                        <h3>Plated Dishes</h3>
+                        <p>Homemade gourmet dish</p>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="../images/cooking/process-1.jpg" alt="Cooking process" loading="lazy">
+                        </div>
+                        <h3>Process</h3>
+                        <p>Behind the scenes cooking</p>
+                    </div>
+                </div>
+                <p style="margin-top:2rem;"><a href="../index.html#galleries">&larr; Back to Galleries</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year">2025</span> Jonathan Crissey. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/gallery.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('#gallery-grid .gallery-card');
+            cards.forEach((card, i) => {
+                card.addEventListener('click', () => {
+                    if (window.galleryUtils && window.galleryUtils.galleries.cooking) {
+                        window.galleryUtils.openLightbox(window.galleryUtils.galleries.cooking.images, i);
+                    }
+                });
+            });
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

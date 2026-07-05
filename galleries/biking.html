@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Biking Gallery - Jonathan Crissey</title>
+    <meta name="description" content="Mountain biking photo gallery - BMX, Downhill, Cross Country, and Gravel adventures.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><a href="../index.html" style="text-decoration:none;color:inherit;">Jonathan Crissey</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#galleries">Galleries</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-page">
+            <div class="container">
+                <h2>Mountain Biking Adventures</h2>
+                <p>BMX, Downhill, Cross Country, and Gravel riding experiences</p>
+                <div class="galleries-grid" id="gallery-grid">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="../images/biking/trail-ride-1.jpg" alt="Cross country trail riding" loading="lazy">
+                        </div>
+                        <h3>Cross Country</h3>
+                        <p>Epic trail ride through mountain terrain</p>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="../images/biking/downhill-1.jpg" alt="Downhill mountain biking" loading="lazy">
+                        </div>
+                        <h3>Downhill</h3>
+                        <p>Downhill racing action</p>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="../images/biking/bmx-1.jpg" alt="BMX tricks and jumps" loading="lazy">
+                        </div>
+                        <h3>BMX</h3>
+                        <p>BMX park session</p>
+                    </div>
+                </div>
+                <p style="margin-top:2rem;"><a href="../index.html#galleries">&larr; Back to Galleries</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year">2025</span> Jonathan Crissey. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/gallery.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('#gallery-grid .gallery-card');
+            cards.forEach((card, i) => {
+                card.addEventListener('click', () => {
+                    if (window.galleryUtils && window.galleryUtils.galleries.biking) {
+                        window.galleryUtils.openLightbox(window.galleryUtils.galleries.biking.images, i);
+                    }
+                });
+            });
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
