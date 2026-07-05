@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin - Repo Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .header-info {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #0366d6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0256c7;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5c636a;
+        }
+
+        .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .repo-card {
+            background: white;
+            border: 2px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: move;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .repo-card:hover {
+            border-color: #0366d6;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        }
+
+        .repo-card.drag-over {
+            background: #f0f5ff;
+            border-color: #0366d6;
+        }
+
+        .repo-card.disabled {
+            opacity: 0.6;
+            background: #f9f9f9;
+        }
+
+        .drag-handle {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            width: 6px;
+            height: 20px;
+            background: linear-gradient(to right, #ccc 0%, #ccc 2px, transparent 2px);
+            background-size: 3px 3px;
+            cursor: grab;
+            opacity: 0.5;
+        }
+
+        .drag-handle:active {
+            cursor: grabbing;
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            margin-left: 20px;
+        }
+
+        .repo-title {
+            flex: 1;
+        }
+
+        .repo-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: #0366d6;
+            margin-bottom: 4px;
+        }
+
+        .repo-language {
+            font-size: 12px;
+            color: #666;
+            background: #f1f3f5;
+            padding: 2px 8px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .repo-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .repo-description input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e1e4e8;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: inherit;
+        }
+
+        .repo-controls {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .control-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .category-select {
+            padding: 6px;
+            border: 1px solid #e1e4e8;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .repo-meta {
+            font-size: 12px;
+            color: #999;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .sort-info {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+
+        .status-info {
+            background: #e7f3ff;
+            padding: 12px;
+            border-left: 4px solid #0366d6;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .status-info strong {
+            color: #0366d6;
+        }
+
+        @media (max-width: 768px) {
+            .repos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Portfolio Admin - Repo Manager</h1>
+            <div class="header-info">
+                Drag to reorder repos. Configure which repos appear on your portfolio.
+                <strong id="repo-count"></strong>
+            </div>
+            <div class="button-group">
+                <button class="btn-primary" onclick="saveProjectsJS()">💾 Save projects.js</button>
+                <button class="btn-secondary" onclick="saveReposJSON()">💾 Save repos.json</button>
+                <button class="btn-secondary" onclick="location.reload()">🔄 Reload</button>
+            </div>
+        </header>
+
+        <div class="status-info">
+            <strong>Included repos:</strong> <span id="included-count">0</span> |
+            <strong>Featured:</strong> <span id="featured-count">0</span> |
+            <strong>Server:</strong> <span id="server-status">checking...</span>
+        </div>
+
+        <div id="repos-container" class="repos-grid"></div>
+    </div>
+
+    <script>
+        let repos = [];
+        let draggedElement = null;
+        let draggedIndex = null;
+
+        // Load repos on page load
+        async function loadRepos() {
+            try {
+                const response = await fetch('data/repos.json');
+                repos = await response.json();
+                renderRepos();
+                updateStats();
+            } catch (error) {
+                console.error('Error loading repos:', error);
+                alert('Failed to load repos.json. Make sure you\'ve run `python3 scripts/fetch_repos.py` first.');
+            }
+        }
+
+        function renderRepos() {
+            const container = document.getElementById('repos-container');
+            container.innerHTML = '';
+
+            repos.forEach((repo, index) => {
+                const card = document.createElement('div');
+                card.className = `repo-card ${!repo.included ? 'disabled' : ''}`;
+                card.draggable = true;
+                card.dataset.index = index;
+
+                const languages = [
+                    'web', 'mobile', 'financial', 'devops', 'ai', 'tools'
+                ];
+
+                card.innerHTML = `
+                    <div class="drag-handle"></div>
+                    <div class="repo-header">
+                        <div class="repo-title">
+                            <div class="repo-name">${escapeHtml(repo.name)}</div>
+                            ${repo.primaryLanguage ? `<span class="repo-language">${escapeHtml(repo.primaryLanguage)}</span>` : ''}
+                            ${repo.hasGitHubPages ? '<span class="repo-language" style="background: #90ee90; color: #333;">📄 Pages</span>' : ''}
+                        </div>
+                    </div>
+
+                    <div class="repo-description">
+                        <input type="text" placeholder="Enter description..." value="${escapeHtml(repo.description)}"
+                               onchange="repos[${index}].description = this.value">
+                    </div>
+
+                    <div class="repo-controls">
+                        <div class="control-group">
+                            <label>
+                                <input type="checkbox" ${repo.included ? 'checked' : ''}
+                                       onchange="repos[${index}].included = this.checked; updateStats();">
+                                Include
+                            </label>
+                        </div>
+                        <div class="control-group">
+                            <label>
+                                <input type="checkbox" ${repo.featured ? 'checked' : ''}
+                                       onchange="repos[${index}].featured = this.checked; updateStats();">
+                                Featured
+                            </label>
+                        </div>
+                        <div class="control-group">
+                            <select class="category-select" onchange="repos[${index}].category = this.value">
+                                <option value="">Category...</option>
+                                ${languages.map(lang =>
+                                    `<option value="${lang}" ${repo.category === lang ? 'selected' : ''}>${lang}</option>`
+                                ).join('')}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="repo-meta">
+                        <div>🔗 <a href="${repo.url}" target="_blank" style="color: #0366d6; text-decoration: none;">View on GitHub</a></div>
+                        <div>📅 Updated: ${new Date(repo.updatedAt).toLocaleDateString()}</div>
+                        <div>Position: <span class="sort-info">#${index + 1}</span></div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Add drag event listeners
+            document.querySelectorAll('.repo-card').forEach(card => {
+                card.addEventListener('dragstart', handleDragStart);
+                card.addEventListener('dragover', handleDragOver);
+                card.addEventListener('drop', handleDrop);
+                card.addEventListener('dragend', handleDragEnd);
+                card.addEventListener('dragleave', handleDragLeave);
+            });
+        }
+
+        function handleDragStart(e) {
+            draggedElement = this;
+            draggedIndex = parseInt(this.dataset.index);
+            this.style.opacity = '0.5';
+            e.dataTransfer.effectAllowed = 'move';
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            if (this !== draggedElement) {
+                this.classList.add('drag-over');
+            }
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const targetIndex = parseInt(this.dataset.index);
+
+            if (draggedIndex !== targetIndex) {
+                const [draggedRepo] = repos.splice(draggedIndex, 1);
+                repos.splice(targetIndex, 0, draggedRepo);
+
+                // Update sortOrder
+                repos.forEach((repo, idx) => {
+                    repo.sortOrder = idx;
+                });
+
+                renderRepos();
+            }
+
+            this.classList.remove('drag-over');
+        }
+
+        function handleDragEnd(e) {
+            document.querySelectorAll('.repo-card').forEach(card => {
+                card.style.opacity = '1';
+                card.classList.remove('drag-over');
+            });
+        }
+
+        function updateStats() {
+            const included = repos.filter(r => r.included).length;
+            const featured = repos.filter(r => r.featured).length;
+            document.getElementById('included-count').textContent = included;
+            document.getElementById('featured-count').textContent = featured;
+            document.getElementById('repo-count').textContent = `(${included} included repos)`;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function generateProjectsJS() {
+            const includedRepos = repos.filter(r => r.included);
+
+            // Map the data to the projects.js format expected by the portfolio
+            const projects = includedRepos.map(repo => ({
+                name: repo.name,
+                description: repo.description || `Project: ${repo.name}`,
+                url: repo.url,
+                homepageUrl: repo.homepageUrl,
+                primaryLanguage: repo.primaryLanguage,
+                hasGitHubPages: repo.hasGitHubPages,
+                featured: repo.featured,
+                category: repo.category || 'web',
+                topics: repo.topics || [],
+                updatedAt: repo.updatedAt
+            }));
+
+            // Sort by featured first, then by sortOrder
+            projects.sort((a, b) => {
+                if (a.featured !== b.featured) {
+                    return b.featured ? 1 : -1;
+                }
+                return repos.indexOf(repos.find(r => r.name === a.name)) -
+                       repos.indexOf(repos.find(r => r.name === b.name));
+            });
+
+            const js = `// Static project data from GitHub repositories
+// Generated by admin.html - DO NOT EDIT MANUALLY
+const projects = ${JSON.stringify(projects, null, 4)};
+
+// Function to get projects by category
+function getProjectsByCategory(category) {
+    if (category === 'all') {
+        return projects;
+    }
+    return projects.filter(project => project.category === category);
+}
+
+// Function to get featured projects
+function getFeaturedProjects() {
+    return projects.filter(project => project.featured);
+}
+
+// Function to format date
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    });
+}
+
+// Function to get language color (for visual consistency)
+function getLanguageColor(language) {
+    const colors = {
+        'HTML': '#e34c26',
+        'Python': '#3776ab',
+        'Swift': '#fa7343',
+        'JavaScript': '#f1e05a',
+        'TypeScript': '#2b7489',
+        'Jupyter Notebook': '#da5b0b',
+        'PHP': '#777bb4'
+    };
+    return colors[language] || '#6c757d';
+}
+`;
+            return js;
+        }
+
+        async function saveProjectsJS() {
+            try {
+                const content = generateProjectsJS();
+                const response = await fetch('/api/save-projects', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert('✓ projects.js saved! Refresh the portfolio to see changes.');
+                } else {
+                    alert('✗ Error saving projects.js');
+                }
+            } catch (error) {
+                alert('✗ Error: ' + error.message);
+            }
+        }
+
+        async function saveReposJSON() {
+            try {
+                const response = await fetch('/api/save-repos', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ repos })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert('✓ repos.json saved! Your configuration is preserved.');
+                } else {
+                    alert('✗ Error saving repos.json');
+                }
+            } catch (error) {
+                alert('✗ Error: ' + error.message);
+            }
+        }
+
+        async function checkServerStatus() {
+            try {
+                const response = await fetch('/api/save-projects', {
+                    method: 'OPTIONS'
+                });
+                document.getElementById('server-status').textContent = '🟢 Connected';
+                document.getElementById('server-status').style.color = '#28a745';
+            } catch (error) {
+                document.getElementById('server-status').textContent = '🔴 Offline (downloads only)';
+                document.getElementById('server-status').style.color = '#dc3545';
+            }
+        }
+
+        // Load repos when page loads
+        loadRepos();
+        checkServerStatus();
+    </script>
+</body>
+</html>
