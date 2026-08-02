@@ -1,12 +1,12 @@
 [
   {
-    "name": "risk-divergence",
-    "description": "Real-time risk divergence analysis tool for financial markets",
-    "url": "https://github.com/jonsflow/risk-divergence",
-    "homepageUrl": "",
+    "name": "risk-model",
+    "description": "Financial risk modeling and divergence analysis tool for trading",
+    "url": "https://github.com/jonsflow/risk-model",
+    "homepageUrl": "https://jonsflow.github.io/risk-model/",
     "primaryLanguage": "JavaScript",
     "hasGitHubPages": true,
-    "pushedAt": "2026-03-06T21:08:09Z",
+    "pushedAt": "2026-08-02T00:00:00Z",
     "updatedAt": "2026-03-06T21:08:14Z",
     "topics": [],
     "included": true,
@@ -15,29 +15,29 @@
     "sortOrder": 0
   },
   {
-    "name": "bikecheck",
-    "description": "iOS maintenance companion app with Strava integration for tracking bike service schedules, component maintenance, and smart reminders across multiple bikes",
-    "url": "https://github.com/jonsflow/bikecheck",
-    "homepageUrl": "",
-    "primaryLanguage": "Swift",
-    "hasGitHubPages": false,
-    "pushedAt": "2026-03-04T05:19:37Z",
-    "updatedAt": "2026-03-04T05:19:42Z",
-    "topics": [],
-    "included": true,
-    "featured": false,
-    "category": "",
-    "sortOrder": 1
-  },
-  {
-    "name": "schwab_streaming_options",
-    "description": "Streaming options data and analysis using Schwab API",
-    "url": "https://github.com/jonsflow/schwab_streaming_options",
+    "name": "agent-system",
+    "description": "Deterministic orchestrator that dispatches to CLI-invocable AI agents, with auditable multi-stage pipelines for research and content generation",
+    "url": "https://github.com/jonsflow/agent-system",
     "homepageUrl": "",
     "primaryLanguage": "Python",
     "hasGitHubPages": false,
-    "pushedAt": "2026-02-28T04:54:07Z",
-    "updatedAt": "2026-02-28T04:54:10Z",
+    "pushedAt": "2026-07-21T00:00:00Z",
+    "updatedAt": "2026-07-21T00:00:00Z",
+    "topics": [],
+    "included": true,
+    "featured": true,
+    "category": "tools",
+    "sortOrder": 1
+  },
+  {
+    "name": "bikecheck-public",
+    "description": "Public documentation for Bikecheck - iOS maintenance companion app with Strava integration",
+    "url": "https://github.com/jonsflow/bikecheck-public",
+    "homepageUrl": "https://jonsflow.github.io/bikecheck-public/",
+    "primaryLanguage": "HTML",
+    "hasGitHubPages": true,
+    "pushedAt": "2026-03-04T05:19:37Z",
+    "updatedAt": "2026-03-04T05:19:42Z",
     "topics": [],
     "included": true,
     "featured": false,
@@ -120,21 +120,6 @@
     "sortOrder": 7
   },
   {
-    "name": "bikecheck-public",
-    "description": "Bikecheck-public documentation",
-    "url": "https://github.com/jonsflow/bikecheck-public",
-    "homepageUrl": "",
-    "primaryLanguage": "HTML",
-    "hasGitHubPages": true,
-    "pushedAt": "2025-10-28T02:40:49Z",
-    "updatedAt": "2025-10-28T02:40:53Z",
-    "topics": [],
-    "included": true,
-    "featured": false,
-    "category": "",
-    "sortOrder": 8
-  },
-  {
     "name": "ansible-lint-fixer",
     "description": "Automated tool for fixing Ansible linting issues",
     "url": "https://github.com/jonsflow/ansible-lint-fixer",
@@ -147,7 +132,7 @@
     "included": true,
     "featured": false,
     "category": "",
-    "sortOrder": 9
+    "sortOrder": 8
   },
   {
     "name": "rag_agent",
@@ -162,7 +147,7 @@
     "included": true,
     "featured": false,
     "category": "",
-    "sortOrder": 10
+    "sortOrder": 9
   },
   {
     "name": "ibkr_paper_trading",
@@ -177,7 +162,7 @@
     "included": true,
     "featured": false,
     "category": "",
-    "sortOrder": 11
+    "sortOrder": 10
   },
   {
     "name": "ollama-mcp",
@@ -192,11 +177,11 @@
     "included": true,
     "featured": false,
     "category": "",
-    "sortOrder": 12
+    "sortOrder": 11
   },
   {
     "name": "schwab-streaming",
-    "description": "Real-time financial market data streaming application using Schwab API",
+    "description": "Real-time financial market data and options streaming application using the Schwab API",
     "url": "https://github.com/jonsflow/schwab-streaming",
     "homepageUrl": "",
     "primaryLanguage": "Python",
@@ -205,9 +190,9 @@
     "updatedAt": "2025-11-26T13:08:02Z",
     "topics": [],
     "included": true,
-    "featured": false,
-    "category": "",
-    "sortOrder": 13
+    "featured": true,
+    "category": "financial",
+    "sortOrder": 12
   },
   {
     "name": "bragging-rights",
@@ -222,7 +207,7 @@
     "included": true,
     "featured": false,
     "category": "",
-    "sortOrder": 14
+    "sortOrder": 13
   },
   {
     "name": "YesChef",
@@ -237,7 +222,7 @@
     "included": true,
     "featured": false,
     "category": "",
-    "sortOrder": 15
+    "sortOrder": 14
   },
   {
     "name": "mtb-trivia",
@@ -252,22 +237,7 @@
     "included": true,
     "featured": false,
     "category": "",
-    "sortOrder": 16
-  },
-  {
-    "name": "rh_stocks",
-    "description": "A collection of Robin Stocks Python scripts and Jupyter notebooks for trading analysis",
-    "url": "https://github.com/jonsflow/rh_stocks",
-    "homepageUrl": "",
-    "primaryLanguage": "Jupyter Notebook",
-    "hasGitHubPages": false,
-    "pushedAt": "2025-03-04T01:58:35Z",
-    "updatedAt": "2025-08-16T21:33:14Z",
-    "topics": [],
-    "included": true,
-    "featured": false,
-    "category": "",
-    "sortOrder": 17
+    "sortOrder": 15
   },
   {
     "name": "nplusone",
@@ -282,21 +252,6 @@
     "included": true,
     "featured": false,
     "category": "",
-    "sortOrder": 18
-  },
-  {
-    "name": "TOS",
-    "description": "This is a backup of my TOS workspace and studies",
-    "url": "https://github.com/jonsflow/TOS",
-    "homepageUrl": "",
-    "primaryLanguage": "TypeScript",
-    "hasGitHubPages": false,
-    "pushedAt": "2024-10-12T20:05:50Z",
-    "updatedAt": "2025-08-16T21:32:32Z",
-    "topics": [],
-    "included": true,
-    "featured": false,
-    "category": "",
-    "sortOrder": 19
+    "sortOrder": 16
   }
 ]

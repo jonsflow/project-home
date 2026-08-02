@@ -14,6 +14,18 @@ const projects = [
         "updatedAt": "2026-07-04T01:22:32Z"
     },
     {
+        "name": "agent-system",
+        "description": "Deterministic orchestrator that dispatches to CLI-invocable AI agents, with auditable multi-stage pipelines for research and content generation",
+        "url": "https://github.com/jonsflow/agent-system",
+        "homepageUrl": "",
+        "primaryLanguage": "Python",
+        "hasGitHubPages": false,
+        "featured": true,
+        "category": "tools",
+        "topics": [],
+        "updatedAt": "2026-07-21T00:00:00Z"
+    },
+    {
         "name": "rh_web",
         "description": "Web interface for Robinhood trading data and portfolio visualization",
         "url": "https://github.com/jonsflow/rh_web",
@@ -99,13 +111,13 @@ const projects = [
     },
     {
         "name": "schwab-streaming",
-        "description": "Real-time financial market data streaming application using Schwab API",
+        "description": "Real-time financial market data and options streaming application using the Schwab API",
         "url": "https://github.com/jonsflow/schwab-streaming",
         "homepageUrl": "",
         "primaryLanguage": "Python",
         "hasGitHubPages": false,
-        "featured": false,
-        "category": "web",
+        "featured": true,
+        "category": "financial",
         "topics": [],
         "updatedAt": "2026-06-03T12:43:55Z"
     },
