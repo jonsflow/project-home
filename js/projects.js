@@ -125,7 +125,7 @@ const projects = [
     },
     {
         "name": "schwab-streaming",
-        "description": "Flask app streaming live market data over WebSockets, with interactive charts, watchlists, and a mock mode for offline testing.",
+        "description": "Flask app streaming live market and options data over WebSockets, with interactive charts, watchlists, and a mock mode.",
         "url": "https://github.com/jonsflow/schwab-streaming",
         "homepageUrl": "",
         "primaryLanguage": "Python",
