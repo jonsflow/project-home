@@ -250,6 +250,9 @@ section {
 }
 
 .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: var(--background-color);
     border-radius: 10px;
     padding: 1.5rem;
@@ -287,6 +290,7 @@ section {
 }
 
 .project-description {
+    flex: 1 1 auto;
     margin-bottom: 1rem;
     color: var(--text-light);
 }

@@ -18,19 +18,34 @@ Pure client-side web application optimized for GitHub Pages deployment:
 
 ## Development Workflow
 
-### Repository Discovery (Development Only)
-Use `gh` CLI during development to gather current repositories, then hardcode the results:
+### Project Data (Manually Curated)
 
-```bash
-# List all repositories with details
-gh repo list --limit 100 --json name,description,url,homepageUrl,primaryLanguage,updatedAt
+`js/projects.js` is the live project list and is **maintained by hand**. Edit it
+directly.
 
-# Check specific repo for GitHub Pages
-gh api repos/jonsflow/{repo-name}/pages
+This file used to be generated. That tooling — `admin.html`, `server.py`,
+`scripts/fetch_repos.py`, `scripts/merge_descriptions.py`, and `data/` — has been
+**removed**, because its output was not precise enough: placeholder descriptions
+(`"Project: <name>"`), private repos that 404 for visitors, and stale entries as
+repos were renamed. Hand-written descriptions say what a project actually does
+and why it matters, which is the entire point of the page.
 
-# Get repository topics/tags
-gh repo view {repo-name} --json topics
-```
+Do not reintroduce a generator that writes `js/projects.js`. It would overwrite
+the curated list with worse data. (The removed files remain in git history if
+they are ever needed for reference.)
+
+When adding a project, append an entry to the `projects` array in
+`js/projects.js`:
+
+- Link only to **public** repos — private ones 404 for visitors. Where a project
+  is private, link its public counterpart instead (e.g. `bikecheck-public`
+  stands in for the private `bikecheck`).
+- `category` must match a `data-filter` button in `index.html`
+  (`ai`, `web`, `mobile`, `financial`, `tools`), or the card is unreachable by filter.
+- Add the language to `getLanguageColor()` or its dot renders default gray.
+- Keep descriptions roughly **80–130 characters** so card heights stay even.
+- Some repos live under the **`jf229`** GitHub account — an external account used
+  for IBM public projects. Those links are correct as-is.
 
 ### Local Development
 ```bash
@@ -54,6 +69,9 @@ npx serve .
 ### Technical Background
 - 18+ years software engineering experience
 - Cloud infrastructure, mobile development, hardware automation
+- AI-assisted engineering: agent orchestration, multi-agent pipelines, RAG and
+  retrieval evaluation, and validating AI-generated output with tests and CI.
+  Every project since 2024 has been built with AI assistance to some degree.
 - Current role: Cloud Hardware Platform Engineer at IBM
 
 ### Interests for Photo Galleries
@@ -88,22 +106,22 @@ npx serve .
 
 ## Project Data Structure
 
-### Static Project Configuration
+### Entry Shape
+
 ```javascript
 // js/projects.js
-const projects = [
-  {
-    name: "resume-creator",
-    description: "YAML-based resume generation system",
-    url: "https://github.com/jonsflow/resume-creator",
-    homepageUrl: "https://jonsflow.github.io/resume-creator",
-    primaryLanguage: "Python",
-    hasGitHubPages: true,
-    featured: true,
-    topics: ["resume", "yaml", "generator"]
-  }
-  // Add more projects as discovered via gh CLI
-];
+{
+    "name": "agent-system",
+    "description": "Deterministic orchestrator for AI coding agents \u2014 plain, testable code owns state and sequencing while agents handle only judgment.",
+    "url": "https://github.com/jonsflow/agent-system",
+    "homepageUrl": "",
+    "primaryLanguage": "Python",
+    "hasGitHubPages": false,
+    "featured": true,
+    "category": "ai",
+    "topics": ["agents", "orchestration", "llm"],
+    "updatedAt": "2026-07-21T17:03:04Z"
+}
 ```
 
 ## Styling and Branding
@@ -138,8 +156,8 @@ const projects = [
 ## Content Updates
 
 When adding new projects:
-1. Use `gh repo list` to discover new repositories
-2. Use `gh api repos/{owner}/{repo}/pages` to check GitHub Pages status
-3. Manually add project data to `js/projects.js`
+1. Confirm the repo is public — private repos 404 for visitors
+2. Add the entry to `js/projects.js` by hand (see Project Data above)
+3. Check `category` matches a filter button and the language has a color
 4. Add project screenshots to `images/projects/`
 5. Update featured projects as needed
